@@ -101,7 +101,7 @@ export default {
             display: true,
             scaleLabel: {
               display: true,
-              labelString: "Gross (Household) Income in JPY",
+              labelString: "Gross [Household] Income in JPY",
             },
           },
         ],
@@ -114,7 +114,7 @@ export default {
             },
             scaleLabel: {
               display: true,
-              labelString: "Effective Tax Rate",
+              labelString: "Effective Tax Rate (including FICA taxes)",
             },
           },
         ],
