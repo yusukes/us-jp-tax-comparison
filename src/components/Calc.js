@@ -358,9 +358,12 @@ export class JapanTaxCalculator extends TaxCalculator {
   }
 
   getLocalTaxInternal(taxableIncome) {
-    if (taxableIncome < 0) return 0;
+    if (taxableIncome <= 0) return 0;
     // https://www.tax.metro.tokyo.lg.jp/kazei/kojin_ju.html#gaiyo_02
-    return Math.round(taxableIncome * 0.1) + (1500 + 3500 + 500);
+    let kintouwari = 1500 + 3500 + 500;
+    // TODO: This kintouwari calculation is not 100% correct, fix.
+    if (taxableIncome < 280000) kintouwari = 0;
+    return Math.round(taxableIncome * 0.1) + kintouwari;
   }
 
   canBeADependent() {

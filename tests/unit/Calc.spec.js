@@ -329,6 +329,11 @@ test("JP spouse special deductions for local tax match table", () => {
   }
 });
 
+test("JP local tax is zero when the income is zero", () => {
+  const jp = new JapanTaxCalculator(0, 0, false, false, 0);
+  expect(jp.getLocalTax()).toBeCloseTo(0);
+});
+
 test("US deductions are calculated correctly", () => {
   const grossIncome = 100000;
   const deductions = 10000;
