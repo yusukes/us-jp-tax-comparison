@@ -25,6 +25,7 @@ class TaxCalculator {
   }
 
   getEffectiveTaxRate() {
+    if (this.grossIncome == 0) return 0;
     return this.toThousandths(this.getTotalTax() / this.grossIncome);
   }
 
