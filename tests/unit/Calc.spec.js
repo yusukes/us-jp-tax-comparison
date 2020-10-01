@@ -339,6 +339,7 @@ test("US deductions are calculated correctly", () => {
   const deductions = 10000;
   const FSA = 1000;
   const HSA = 100;
+  const SDI = grossIncome * 0.01;
 
   const us = new USCaliforniaTaxCalculator(
     grossIncome,
@@ -348,9 +349,9 @@ test("US deductions are calculated correctly", () => {
     0.5,
     false
   );
-  // Federal recognises HSA.
+  // Federal recognises HSA and SDI.
   expect(us.getTotalDeductions(false)).toBeCloseTo(
-    deductions + FSA + HSA + us.getStandardDeduction(false)
+    deductions + FSA + HSA + SDI + us.getStandardDeduction(false)
   );
   // ..but CA doesn't.
   expect(us.getTotalDeductions(true)).toBeCloseTo(

@@ -69,6 +69,7 @@
               <th class="text-left">WA net income in USD</th>
               <th class="text-left">WA net income in JPY</th>
               <th class="text-left">CA state tax</th>
+              <th class="text-left">CA SDI tax</th>
               <th class="text-left">CA total tax</th>
               <th class="text-left">CA effective tax rate</th>
               <th class="text-left">CA net income in USD</th>
@@ -88,6 +89,7 @@
               <td>{{ item.waNetIncomeUSD }}</td>
               <td>{{ item.waNetIncomeJPY }}</td>
               <td>{{ item.caStateTax }}</td>
+              <td>{{ item.caSDITax }}</td>
               <td>{{ item.caTotalTax }}</td>
               <td>{{ item.caEffectiveTaxRate }}</td>
               <td>{{ item.caNetIncomeUSD }}</td>
@@ -215,6 +217,7 @@
               <th class="text-left">WA net income in USD</th>
               <th class="text-left">WA net income in JPY</th>
               <th class="text-left">CA state tax</th>
+              <th class="text-left">CA SDI tax</th>
               <th class="text-left">CA total tax</th>
               <th class="text-left">CA effective tax rate</th>
               <th class="text-left">CA net income in USD</th>
@@ -234,6 +237,7 @@
               <td>{{ item.waNetIncomeUSD }}</td>
               <td>{{ item.waNetIncomeJPY }}</td>
               <td>{{ item.caStateTax }}</td>
+              <td>{{ item.caSDITax }}</td>
               <td>{{ item.caTotalTax }}</td>
               <td>{{ item.caEffectiveTaxRate }}</td>
               <td>{{ item.caNetIncomeUSD }}</td>

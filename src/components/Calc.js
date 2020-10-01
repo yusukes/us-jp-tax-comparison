@@ -73,6 +73,8 @@ export class USFederalTaxCalculator extends TaxCalculator {
     return (
       this.deductions +
       this.deductionsFSA +
+      // CA SDI deduction is for federal only.
+      (forLocalTax ? 0 : this.getSDITax()) +
       // CA doesn't recognize HSA.
       (forLocalTax ? 0 : this.deductionsHSA) +
       this.getStandardDeduction(forLocalTax)
@@ -164,6 +166,11 @@ export class USFederalTaxCalculator extends TaxCalculator {
   getLocalTax() {
     return 0;
   }
+
+  getSDITax() {
+    // For WA, it's zero.
+    return 0;
+  }
 }
 
 export class USCaliforniaTaxCalculator extends USFederalTaxCalculator {
@@ -203,6 +210,19 @@ export class USCaliforniaTaxCalculator extends USFederalTaxCalculator {
       this.getTaxableIncome(true),
       brackets,
       this.toHundredths
+    );
+  }
+
+  getSDITax() {
+    // https://edd.ca.gov/Payroll_Taxes/What_Are_State_Payroll_Taxes.htm
+    const wageBaseLimits = 122909; // 2020 *per-person* limit
+    const taxRate = 0.01;
+    // For SDI calculations, it's not allowed to deduct 401(k) etc.
+    // https://www.zenefits.com/workest/how-are-payroll-taxes-calculated-state-disability-insurance/
+    return this.toHundredths(
+      Math.min(wageBaseLimits, this.grossIncome * this.incomeRatio) * taxRate +
+        Math.min(wageBaseLimits, this.grossIncome * (1 - this.incomeRatio)) *
+          taxRate
     );
   }
 

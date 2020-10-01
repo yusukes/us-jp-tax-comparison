@@ -545,6 +545,7 @@ export default {
           singleFiling
         );
         item["caStateTax"] = ca.getLocalTax();
+        item["caSDITax"] = ca.getSDITax();
         item["caTotalTax"] = ca.getTotalTax();
         item["caEffectiveTaxRate"] = ca.getEffectiveTaxRate();
         item["caNetIncomeUSD"] = ca.getNetIncome();
