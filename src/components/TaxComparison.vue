@@ -522,7 +522,7 @@ export default {
           singleFiling ? this.usSingleDeductions : this.usJointDeductions,
           singleFiling ? this.usSingleDeductionsFSA : this.usJointDeductionsFSA,
           singleFiling ? this.usSingleDeductionsHSA : this.usJointDeductionsHSA,
-          this.incomeRatio / 100,
+          singleFiling ? 1.0 : this.incomeRatio / 100,
           singleFiling
         );
         const item = {};
@@ -541,7 +541,7 @@ export default {
           singleFiling ? this.usSingleDeductions : this.usJointDeductions,
           singleFiling ? this.usSingleDeductionsFSA : this.usJointDeductionsFSA,
           singleFiling ? this.usSingleDeductionsHSA : this.usJointDeductionsHSA,
-          this.incomeRatio / 100,
+          singleFiling ? 1.0 : this.incomeRatio / 100,
           singleFiling
         );
         item["caStateTax"] = ca.getLocalTax();
